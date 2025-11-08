@@ -9,8 +9,7 @@ export default function Donate() {
                     <p>โอนได้เลย ไม่มีคนละครึ่ง ขอบคุณครับสำหรับค่ากาแฟครับ</p>
                 </div>
                 <div className="flex justify-center mt-5">
-                    <p></p>
-                    <img src="./donate.jpeg" alt="" className="h-150 " />
+                    <img src="./donate.jpeg" alt="" className="h-150" />
                 </div>
 
                 <div className="p-4">

@@ -180,7 +180,6 @@ export default function WordGraphThaiChain() {
 
   return (
     <div className="w-full">
-      {/* แถวควบคุม */}
       <div className="flex gap-3 items-center mb-3 justify-center">
         <input
           value={value}
@@ -200,12 +199,10 @@ export default function WordGraphThaiChain() {
         </button>
       </div>
 
-      {/* แถบคิว */}
       <div className="mb-2 text-center text-sm text-gray-600">
         คิวถัดไป: {queue.length ? queue.join(" → ") : (connectedToEndRef.current ? "— เสร็จสิ้น —" : "กด Add เพื่อเชื่อมถึง รัก")}
       </div>
 
-      {/* กราฟ */}
       <div
         ref={containerRef}
         className="h-[420px] w-full rounded-xl bg-white"

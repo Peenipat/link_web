@@ -16,16 +16,17 @@ function Home() {
           ข้อมูลผู้พัฒนา
         </Link>
 
-        <button className="mt-8 bg-pink-600 hover:bg-pink-700 text-white font-semibold py-1 px-4 rounded-full shadow-lg transition-all duration-300">
+        <Link
+          to="/aboutproject"
+          className="mt-8 bg-pink-600 hover:bg-pink-700 text-white font-semibold py-1 px-4 rounded-full shadow-lg transition-all duration-300">
           เกี่ยวกับโปรเจกต์นี้
-        </button>
+        </Link>
 
         <Link
-         to="/donate"
+          to="/donate"
           className="mt-8 bg-pink-600 hover:bg-pink-700 text-white font-semibold py-1 px-4 rounded-full shadow-lg transition-all duration-300">
           สนับสนุนค่ากาแฟ
         </Link>
-
       </div>
       <section className="max-w-xl bg-white rounded-2xl shadow-lg p-6 text-gray-800">
         <h2 className="text-2xl font-semibold mb-3">วิธีเล่น</h2>
