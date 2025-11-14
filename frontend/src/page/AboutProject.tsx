@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function AboutPage() {
-    const [activeTab, setActiveTab] = useState<"inspiration" | "techStack" | "support">("inspiration");
+    const [activeTab, setActiveTab] = useState<"inspiration" | "techStack" | "design">("inspiration");
 
     return (
         <main className="min-h-screen bg-linear-to-b from-pink-50 to-pink-100 flex flex-col items-center text-center px-6 py-3">
@@ -9,6 +10,12 @@ export default function AboutPage() {
                 <h2 className="text-2xl font-semibold mb-4">เกี่ยวกับโปรเจกต์นี้</h2>
 
                 <div className="flex justify-center mb-6 gap-4 flex-wrap">
+                    <Link
+                        to="/"
+                        className="py-2 px-4 rounded-full font-semibold transition-all duration-300 shadow-md bg-pink-100 text-pink-700">
+                        กลับไปที่หน้าแรก
+                    </Link>
+
                     <button
                         onClick={() => setActiveTab("inspiration")}
                         className={`py-2 px-4 rounded-full font-semibold transition-all duration-300 shadow-md
@@ -32,14 +39,14 @@ export default function AboutPage() {
                     </button>
 
                     <button
-                        onClick={() => setActiveTab("support")}
+                        onClick={() => setActiveTab("design")}
                         className={`py-2 px-4 rounded-full font-semibold transition-all duration-300 shadow-md
-              ${activeTab === "support"
+              ${activeTab === "design"
                                 ? "bg-pink-600 text-white"
                                 : "bg-pink-100 hover:bg-pink-200 text-pink-700"
                             }`}
                     >
-                        สนับสนุนค่ากาแฟ
+                        ส่วนการออกแบบระบบ
                     </button>
                 </div>
 
@@ -49,18 +56,28 @@ export default function AboutPage() {
                             <h3 className="text-xl font-semibold mb-2 text-pink-700">Tech Stack</h3>
                             <p>
                                 เครื่องมือที่ผมใช้ในการพัฒนาโปรเจกต์นี้เป็นสแต็กทั่วไป เน้นทำให้ใช้งานได้จริง
-                                ในเวลาสั้น ๆ โค้ดอาจไม่ใช่ best practice ทั้งหมด ใครสนใจสามารถดูรายละเอียดเพิ่มเติมได้ที่ GitHub profile ผมได้หรือ click ที่ปุ่ม source code ได้เลยครับ
+                                ในเวลาสั้น ๆ โค้ดอาจไม่ใช่ best practice ทั้งหมด ใครสนใจสามารถดูรายละเอียดเพิ่มเติมได้ที่ GitHub profile ผมได้หรือ click ที่ปุ่ม source code ได้เลยครับ ผม vibe code มา backend เรียกได้ว่ามาจาก Codex เกือบ ๆ 80% เลย ฮ่า ๆ เอาเป็นว่าผมอยากให้ focus เรื่องไอเดียของเกมเป็นหลัก มากกว่าจะไปติติงเรื่องโค้ดนะครับ
                             </p>
 
                             <div className="flex gap-3 mt-4">
+
                                 <a
+                                    href="https://github.com/Peenipat/th-word-similarity-api.git"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="px-2 rounded-full border border-pink-200 hover:border-pink-300 text-pink-700 bg-pink-50 hover:bg-pink-100 transition"
+                                >
+                                    source code Backend api
+                                </a>
+
+                                {/* <a
                                     href="https://github.com/Peenipat/link_web.git"
                                     target="_blank"
                                     rel="noreferrer"
                                     className="px-2 rounded-full border border-pink-200 hover:border-pink-300 text-pink-700 bg-pink-50 hover:bg-pink-100 transition"
                                 >
-                                    source code
-                                </a>
+                                    source code Backend api
+                                </a> */}
                             </div>
 
                             {/* Cards */}
@@ -177,7 +194,6 @@ export default function AboutPage() {
                         </div>
                     )}
 
-
                     {activeTab === "inspiration" && (
                         <div>
                             <h3 className="text-xl font-semibold mb-2 text-pink-700">แรงบันดาลใจ</h3>
@@ -205,11 +221,10 @@ export default function AboutPage() {
                         </div>
                     )}
 
-                    {activeTab === "support" && (
+                    {activeTab === "design" && (
                         <div>
-                            <h3 className="text-xl font-semibold mb-2 text-pink-700">สนับสนุนค่ากาแฟ ☕</h3>
-                            <p>หากชอบผลงานนี้ สามารถสนับสนุนค่ากาแฟได้ที่:</p>
-                            <p className="mt-2 font-mono bg-pink-50 p-2 rounded-lg">PromptPay: 081-xxx-xxxx</p>
+                            <h3 className="text-xl font-semibold mb-2 text-pink-700">ส่วนการออกแบบระบบ</h3>
+                            <p>ขอไปเรียบเรียงเนื้อหา แป๊ปนะครับ</p>
                         </div>
                     )}
                 </div>
