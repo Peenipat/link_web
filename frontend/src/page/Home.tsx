@@ -42,9 +42,11 @@ function Home() {
             ด้วยชุดคำใหม่ที่ค่อย ๆ สร้างสะพานของความหมายระหว่างกัน
           </p>
           <p className="text-sm text-gray-500 mb-4">
-            เช่น คำว่า <span className="font-semibold">“แมว”</span> และ{" "}
-            <span className="font-semibold">“รัก”</span>
-            อาจเชื่อมกันได้แบบนี้: แมว → อ้อน → นุ่ม → กอด → รัก
+            เช่น คำว่า <span className="font-semibold">กลูโคส</span> กับคำว่า{" "}
+            <span className="font-semibold">เธอ</span> <br />
+            <p className="mt-1">
+              กลูโคส -{'>'} น้ำตาล -{'>'} หวาน -{'>'} ความรัก -{'>'} แฟน -{'>'} เธอ
+            </p>
           </p>
 
           <p>เกมนี้ไม่มีแพ้ไม่มีชนะ แต่ถ้าอยากได้ความท้าทายลองเชื่อมคำให้ได้น้อยที่สุดดูสิน่าจะเอาไปขิงเพื่อนได้นะ</p>
@@ -57,7 +59,7 @@ function Home() {
               โหมดสุ่ม 2 คำ
             </Link>
             <Link
-            to={"/game-her"} className="bg-pink-600 hover:bg-pink-700 text-white font-semibold py-1 px-4 rounded-full shadow-lg transition-all duration-300">
+              to={"/game-her"} className="bg-pink-600 hover:bg-pink-700 text-white font-semibold py-1 px-4 rounded-full shadow-lg transition-all duration-300">
               โหมดเชื่อมคำให้ถึงเธอ
             </Link>
           </div>

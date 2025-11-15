@@ -1,4 +1,8 @@
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faReact, faPython, faAws } from "@fortawesome/free-brands-svg-icons";
+import { faMicrochip } from "@fortawesome/free-solid-svg-icons";
+
 import { Link } from "react-router-dom";
 
 export default function AboutPage() {
@@ -86,14 +90,7 @@ export default function AboutPage() {
                                 <article className="flex items-start gap-4 rounded-xl border border-pink-100 bg-white/70 p-4 shadow-sm hover:shadow-md transition">
                                     <div className="shrink-0 h-12 w-12 grid place-items-center rounded-lg bg-pink-50">
                                         {/* React logo */}
-                                        <svg viewBox="0 0 64 64" className="h-8 w-8" aria-label="React logo">
-                                            <circle cx="32" cy="32" r="4" fill="#61dafb" />
-                                            <g fill="none" stroke="#61dafb" strokeWidth="2">
-                                                <ellipse cx="32" cy="32" rx="20" ry="8" />
-                                                <ellipse cx="32" cy="32" rx="20" ry="8" transform="rotate(60 32 32)" />
-                                                <ellipse cx="32" cy="32" rx="20" ry="8" transform="rotate(120 32 32)" />
-                                            </g>
-                                        </svg>
+                                        <FontAwesomeIcon icon={faReact} size="2x" />
                                     </div>
                                     <div className="text-left">
                                         <h4 className="font-semibold text-pink-700">Frontend</h4>
@@ -104,6 +101,7 @@ export default function AboutPage() {
                                                 TypeScript
                                             </span>
                                             {/* Tailwind logo as badge */}
+
                                             <span className="text-xs px-2 py-0.5 rounded-full bg-teal-50 text-teal-700 border border-teal-200 inline-flex items-center gap-1">
                                                 <svg viewBox="0 0 48 28" className="h-3 w-4" aria-hidden="true">
                                                     <path
@@ -124,10 +122,7 @@ export default function AboutPage() {
                                 <article className="flex items-start gap-4 rounded-xl border border-pink-100 bg-white/70 p-4 shadow-sm hover:shadow-md transition">
                                     <div className="shrink-0 h-12 w-12 grid place-items-center rounded-lg bg-pink-50">
                                         {/* Python logo */}
-                                        <svg viewBox="0 0 48 48" className="h-8 w-8" aria-label="Python logo">
-                                            <path d="M23 4c-7 0-7 5-7 5v4h7v2H12S4 15 4 23 12 33 12 33h4v-5s0-7 7-7h5s7 0 7-7-7-10-12-10h0z" fill="#3776ab" />
-                                            <path d="M25 44c7 0 7-5 7-5v-4h-7v-2h11s8 0 8-8-8-9-8-9h-4v5s0 7-7 7h-5s-7 0-7 7 7 9 12 9z" fill="#ffd343" />
-                                        </svg>
+                                        <FontAwesomeIcon icon={faPython} size="2x" />
                                     </div>
                                     <div className="text-left">
                                         <h4 className="font-semibold text-pink-700">Backend</h4>
@@ -147,10 +142,7 @@ export default function AboutPage() {
                                 <article className="flex items-start gap-4 rounded-xl border border-pink-100 bg-white/70 p-4 shadow-sm hover:shadow-md transition">
                                     <div className="shrink-0 h-12 w-12 grid place-items-center rounded-lg bg-pink-50">
                                         {/* AWS logo (simple) */}
-                                        <svg viewBox="0 0 64 32" className="h-8 w-8" aria-label="AWS logo">
-                                            <text x="0" y="22" fontSize="18" fontFamily="monospace" fill="#111827">aws</text>
-                                            <path d="M6 26c8 4 20 4 32 0" stroke="#ff9900" strokeWidth="3" fill="none" strokeLinecap="round" />
-                                        </svg>
+                                        <FontAwesomeIcon icon={faAws} size="2x" />
                                     </div>
                                     <div className="text-left">
                                         <h4 className="font-semibold text-pink-700">Infrastructure</h4>
@@ -163,7 +155,7 @@ export default function AboutPage() {
                                                 S3
                                             </span>
                                             <span className="text-xs px-2 py-0.5 rounded-full bg-gray-50 text-gray-700 border border-gray-200">
-                                                Deploy
+                                                RDS
                                             </span>
                                         </div>
                                     </div>
@@ -172,20 +164,14 @@ export default function AboutPage() {
                                 {/* AI Model / Service (placeholder) */}
                                 <article className="flex items-start gap-4 rounded-xl border border-dashed border-pink-200 bg-white/50 p-4 shadow-sm">
                                     <div className="shrink-0 h-12 w-12 grid place-items-center rounded-lg bg-pink-50">
-                                        {/* Placeholder spark icon */}
-                                        <svg viewBox="0 0 48 48" className="h-8 w-8" aria-label="AI logo">
-                                            <path d="M24 6l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7z" fill="#ec4899" />
-                                        </svg>
+                                        <FontAwesomeIcon icon={faMicrochip}  size="2x" />
                                     </div>
                                     <div className="text-left">
-                                        <h4 className="font-semibold text-pink-700">Service / AI Model</h4>
-                                        <p className="text-sm text-gray-600">— ใส่รายละเอียดโมเดล/บริการภายหลัง —</p>
+                                        <h4 className="font-semibold text-pink-700">AI Model</h4>
+                                        <p className="text-sm text-gray-600">facebook/fasttext-th-vectors</p>
                                         <div className="mt-2 flex flex-wrap gap-2">
                                             <span className="text-xs px-2 py-0.5 rounded-full bg-pink-50 text-pink-700 border border-pink-200">
                                                 AI
-                                            </span>
-                                            <span className="text-xs px-2 py-0.5 rounded-full bg-gray-50 text-gray-700 border border-gray-200">
-                                                TBD
                                             </span>
                                         </div>
                                     </div>
@@ -224,7 +210,23 @@ export default function AboutPage() {
                     {activeTab === "design" && (
                         <div>
                             <h3 className="text-xl font-semibold mb-2 text-pink-700">ส่วนการออกแบบระบบ</h3>
-                            <p>ขอไปเรียบเรียงเนื้อหา แป๊ปนะครับ</p>
+                            <div className="flex flex-col gap-4">
+                                <p>
+                                    <span className="text-pink-700 font-semibold mb-2">1. แหล่งอ้างอิงคำศัพท์</span> <br />
+                                    ณ เวลานี้ (15/11/2025) ผมใช้ของ <a href="https://opend-portal.nectec.or.th/dataset/lexitron-2-0" className="font-semibold text-blue-500 underline">คลังคำศัพท์ไทยอังกฤษ (Lexitron 2.0)</a> หากคำศัพท์ที่พิมพ์เข้ามาไม่มีในนี้ระบบจะไม่สามารถนำคำนั้น ๆ
+                                    ไปคำนวณหาความคล้ายของคำเพื่อเชื่อมคำได้ ซึ่งถามว่าครบทุกคำที่มีในภาษาไทยไหม ตอนนี้ผมคิดว่ายังนะ มันยังมีอีกหลายคำที่ไม่มี เช่น อ้อน, เป็นห่วง, ผี, เป็นต้น ตอนนี้ใช้ตัวนี้เป็นหลักผมอาจจะหาข้อมูลเพิ่มเติมหรือวิธีอื่น ๆ ให้ครอบคลุมมากกว่านี้ครับ ถือสะว่านี่เป็นการ start project
+                                </p>
+
+                                <p>
+                                    <span className="text-pink-700 font-semibold mb-2">2. โมเดลที่ใช้วัดความคล้ายของคำ</span> <br />
+                                    ณ เวลานี้ (15/11/2025) ผมใช้ <a href="https://huggingface.co/facebook/fasttext-th-vectors" className="font-semibold text-blue-500 underline">facebook/fasttext-th-vectors</a> ไม่แน่ใจว่าโมเดลนี้ดีที่สุดในตอนนี้แล้วรึยัง
+                                    ผมต้องการเพียงแค่โมเดลขนาดเล็กและ open source เพื่อมาทำ self-host เองได้หากมีโมเดลตัวไหนที่ดีกว่านี้
+                                    หรือเหมาะสมกับโปรเจกต์นี้มากกว่านี้ สามารถแนะนำผมได้นะครับ
+
+                                </p>
+                                <p>ข้อมูลส่วนอื่น ๆ ผมขอไปเรียบเรียงเนื้อหา แป๊ปนะครับ (นานอยู่)</p>
+                            </div>
+
                         </div>
                     )}
                 </div>

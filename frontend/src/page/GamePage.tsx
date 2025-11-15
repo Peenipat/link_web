@@ -12,17 +12,19 @@ const GamePage = ({ mode }: GamePageProps) => {
     const useId = 1
 
     const [term, setTerm] = useState<string>("");
-    const [loading, setLoading] = useState(false);
+
     const [reloadGraph, setReloadGraph] = useState<(() => void) | null>(null);
     const [open, setOpen] = useState(false);
 
-
+    const [loading, setLoading] = useState(false);
+    const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
     const handleAddNode = async () => {
         if (!term.trim()) return alert("กรุณาพิมพ์คำก่อน");
         if (!chainId) return alert("ยังไม่ได้สร้าง chain");
 
         setLoading(true);
         try {
+            const minWaitNext = delay(1200);
             const data = await searchWord(term);
             const wordId = data.matches?.[0]?.id;
             if (!wordId) {
@@ -30,9 +32,9 @@ const GamePage = ({ mode }: GamePageProps) => {
                 return;
             }
 
-            await addNodeToChain(chainId, wordId);
+            const addNodePromise = addNodeToChain(chainId, wordId);
+            await Promise.all([addNodePromise, minWaitNext]);
             const chain = await getChain(chainId);
-            console.log("chain.completed:", chain.completed);
 
             setOpen(chain.completed);
             if (reloadGraph) reloadGraph();
@@ -40,6 +42,7 @@ const GamePage = ({ mode }: GamePageProps) => {
             console.error("Add node failed:", err);
         } finally {
             setLoading(false);
+            setTerm("");
         }
     };
 
@@ -57,7 +60,7 @@ const GamePage = ({ mode }: GamePageProps) => {
                     setChallenge(c);
                     const res = await startChain(c.id, useId);
                     setChainId(res.id);
-                } 
+                }
             } catch (err) {
                 console.error(err);
             }
@@ -91,9 +94,12 @@ const GamePage = ({ mode }: GamePageProps) => {
                             value={term}
                             onChange={(e) => setTerm(e.target.value)} />
                         <button
-                            className="bg-green-500 py-1 px-2 text-white rounded-md"
-                            onClick={handleAddNode}>
-                            เพิ่มคำ
+                            onClick={handleAddNode}
+                            disabled={loading}
+                            className={`w-full rounded-lg px-3 py-2 text-sm font-medium text-white 
+              ${loading ? "bg-green-400 cursor-wait" : "bg-green-600 hover:bg-green-700"}`}
+                        >
+                            {loading ? "กำลังคำนวณ..." : "เพิ่มคำ"}
                         </button>
                     </div>
                     <div className="mt-2">
@@ -143,6 +149,26 @@ const GamePage = ({ mode }: GamePageProps) => {
                 </p>
 
 
+            </Modal>
+
+            <Modal
+                isOpen={loading}
+                // ไม่อยากให้ปิดเองก็ให้ onClose เป็น no-op ไป
+                onClose={() => { }}
+                title="กำลังคำนวณความคล้ายของคำ"
+                size="sm"
+                closeOnBackdrop={false}
+                showCloseIcon={false}
+            >
+                <div className="flex flex-col items-center gap-3 py-2">
+                    {/* วงกลมหมุน ๆ แบบง่าย ๆ */}
+                    <div className="h-10 w-10 rounded-full border-4 border-indigo-500 border-t-transparent animate-spin" />
+                    <p className="text-gray-700 text-sm text-center">
+                        ระบบกำลังค้นหาคำที่ใกล้เคียงที่สุด
+                        <br />
+                        โปรดรอสักครู่...
+                    </p>
+                </div>
             </Modal>
         </main>
 
